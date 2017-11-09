@@ -1,5 +1,6 @@
 const Component={
-  ApiFetch:require('./apiFetch'),
-}
+    ApiFetch:require('./apiFetch'),
+    BasePage:require('./basePage'),
+};
 
-module.exports = Component
+module.exports = Component;

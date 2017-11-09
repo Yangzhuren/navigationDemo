@@ -1,7 +1,9 @@
 
 import React from 'react';
 import {
+    View,
     Button,
+    StatusBar,
 } from 'react-native';
 import{
     StackNavigator,

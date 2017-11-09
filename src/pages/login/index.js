@@ -3,33 +3,43 @@ import {
     View,
     Button,
     Text,
+    Image,
+    StatusBar,
 } from 'react-native';
 import {connect} from 'dva-no-router'
 import {createAction} from "../../actions/index";
+import {BasePage} from '../../components'
+import style from './style'
 
+const loginBackground = require('../../images/login_background.jpeg')
 
 class Login extends React.Component{
     static navigationOptions = {
-        title:'Login',
+        // title:'Login',
+        header:null,
     }
 
     constructor(props){
       super(props)
+      this.setState = this.setState.bind(this)
+      this.state={
+        hidden:false,
+      }
     }
 
     render(){
       const {navigate} = this.props.navigation
-      const {isLoggedIn,user,status,payload} = this.props.user
-      const {dispatch} = this.props
         return(
-            <View>
-                <Button onPress={()=>{
-                  // navigate('Home',{user:'lucy'})
-                  const action = createAction('user/userChanged')({isLoggedIn:'true',user:'lili',status:1,payload:'test'})
-                  dispatch(action)
-                }} title={'Login'}></Button>
-              <Text>login:{isLoggedIn}---user:{JSON.stringify(user)}---status:{status}---payload:{payload}</Text>
+            <BasePage
+            pageLoading=''
+            hidden={false}
+            translucent={true}
+            barStyle='light-content'
+            >
+            <View style={{flex:1}}>
+            <Image source={loginBackground} style={{flex:1}} resizemode='stretch'/>
             </View>
+            </BasePage>
         );
     }
 }
