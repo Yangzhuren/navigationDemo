@@ -1,4 +1,5 @@
-const url_common = 'http://192.168.1.180:8006/';
+// const url_common = 'http://192.168.1.180:8006/';
+const url_common = 'http://localhost:8080/';
 const header = {
     'Content-Type':'application/json;charset=UTF-8',
 };
@@ -12,7 +13,13 @@ class ApiFetch {
                     headers:header,
                     body:JSON.stringify(params)
                 })
-                    .then((response)=>response.json())
+                    .then((response)=>{
+                        try{
+                            return response.json();
+                        }catch(e){
+                            return response;
+                        }   
+                    })
                     .then((responseData)=>{
                         resolve(responseData);
                     })

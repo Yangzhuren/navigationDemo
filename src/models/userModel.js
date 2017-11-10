@@ -5,11 +5,11 @@ export default {
     namespace:'user',
     // 初始state
     state:{
-        user:{isLoggedIn:'false',user:'null',status:'null'},
+        userInfo:{isLoggedIn:'false',user:'null',status:'null'},
     },
     // reduce
     reducers:{
-        getUser(state,{payload}){
+        getUserInfo(state,{payload}){
             return {...state,...payload};
         }
     },
@@ -17,8 +17,8 @@ export default {
     effects:{
         * userChanged({payload},{call,put}){
             yield put(
-                createAction('getUser')({
-                    user:payload
+                createAction('getUserInfo')({
+                    userInfo:payload
                 })
             );
         }
