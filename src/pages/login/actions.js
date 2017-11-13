@@ -10,7 +10,7 @@ class Actions extends BaseActions{
     }
 
     fetchLogin(){
-        ApiFetch.fetch('login','POST',{name:this.state.name,password:this.state.password})
+        ApiFetch.fetch('/login','POST',{name:this.state.name,password:this.state.password})
             .then((result)=>{
                 console.log('result',result);
                 const {navigation} = this.props;
@@ -25,6 +25,10 @@ class Actions extends BaseActions{
                     navigation.dispatch(resetAction);
                 }
             },(error)=>{
+                if(error.message){
+                    console.log('error message',error.message);
+                    return;
+                }
                 console.log('error',error);
             });
     }

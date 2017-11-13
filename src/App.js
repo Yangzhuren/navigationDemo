@@ -17,7 +17,7 @@ import HandleSave from './pages/handleSave';
 const Root = StackNavigator({
     Login:{screen:Login},
     Home:{screen:Home,navigationOptions:({navigation})=>({
-        title:'cao',
+        title:'Home',
     })},
     HandleSave:{screen:HandleSave},
 },{

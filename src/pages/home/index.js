@@ -27,6 +27,14 @@ import HandleSave from '../handleSave';
 const Home = TabNavigator({
     NewsList:{screen:NewsList},
     WorkTask:{screen:WorkTask},
+},{
+    tabBarPosition:'bottom',
+    animationEnabled:true,
+    swipeEnabled:true,
+    tabBarOptions:{
+        activeTintColor:'blue',
+        inactiveTintColor:'grey',
+    },
 });
 
 export default Home;
