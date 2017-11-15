@@ -3,7 +3,7 @@ const url_common = 'http://localhost:8080/';
 const header = {
     'Content-Type':'application/json;charset=UTF-8',
 };
-const timeout = 5000;
+const timeout = 30000;
 
 class ApiFetch {
     fetch(url,method='GET',params=''){

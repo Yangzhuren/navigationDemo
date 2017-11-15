@@ -1,8 +1,10 @@
 import React from 'react';
+import {Text } from 'react-native';
 import { TabNavigator} from 'react-navigation';
 import NewsList from '../newsList';
 import WorkTask from '../WorkTask';
 import HandleSave from '../handleSave';
+import Test from '../test';
 
 // class Home extends React.Component{
 //     constructor(props){
@@ -27,6 +29,7 @@ import HandleSave from '../handleSave';
 const Home = TabNavigator({
     NewsList:{screen:NewsList},
     WorkTask:{screen:WorkTask},
+    Test:{screen:Test},
 },{
     tabBarPosition:'bottom',
     animationEnabled:true,

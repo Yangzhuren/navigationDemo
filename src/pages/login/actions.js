@@ -27,7 +27,7 @@ class Actions extends BaseActions{
             },(error)=>{
                 if(error.message){
                     console.log('error message',error.message);
-                    return;
+                    // return;
                 }
                 console.log('error',error);
             });
