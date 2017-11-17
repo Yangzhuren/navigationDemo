@@ -57,6 +57,7 @@ class HandleSave extends React.Component{
     render(){
       const {setParams,dispatch,goBack,state,navigate} = this.props.navigation
       const {params } = state
+      const homeKey = state.key
       return(
           <View>
           <TextInput
@@ -70,10 +71,10 @@ class HandleSave extends React.Component{
             goBack()
           }}/>
           <Button title={'replace test'} onPress={()=>{
-            const navigateAction = NavigationActions.reset({
-              index:0,
-              actions:[NavigationAction.navigate('Test')],
-              key:'HandleSave',
+            const navigateAction = NavigationActions.navigate({
+              routeName:'Test',
+              params:{homeKey},
+              action:NavigationActions.navigate({routeName:'Home'})
             })
             dispatch(navigateAction)
           }}/>

@@ -34,12 +34,12 @@ class WorkTask extends React.Component{
     }
 
     render(){
-        const {navigate} = this.props.navigation;
+        const {navigate,state} = this.props.navigation;
         return(
             <View>
             <TextInput style={{width,height:20,textAlign:'right'}}/>
             <Text onPress={()=>{
-                navigate('HandleSave',{callBack:(backData)=>{this.setState({backData})}})
+                navigate('HandleSave',{homeKey:state.key,callBack:(backData)=>{this.setState({backData})}})
             }}>go to handle save</Text>
             <Text>{this.state.backData}</Text>
             </View>

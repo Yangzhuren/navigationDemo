@@ -6,17 +6,17 @@ import {NavigationActions} from 'react-navigation';
 
 class Test extends React.Component{
     render(){
-        const {dispatch} = this.props.navigation;
+        const {dispatch,state} = this.props.navigation;
+        const homeKey = state.params?state.params.homeKey:'';
         return(
             <Text 
                 onPress={()=>{
-                    const paramsAction = NavigationActions.setParams({
-                        params:{user:'axiba'},
-                        key:'WorkTask',
+                    const paramsAction = NavigationActions.back({
+                        key:homeKey,
                     });
                     dispatch(paramsAction);
                 }}
-            >test</Text>
+            >back</Text>
         );
     }
 }

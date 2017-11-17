@@ -10,27 +10,36 @@ class Actions extends BaseActions{
     }
 
     fetchLogin(){
-        ApiFetch.fetch('/login','POST',{name:this.state.name,password:this.state.password})
-            .then((result)=>{
-                console.log('result',result);
-                const {navigation} = this.props;
-                if(result&&result.id){
-                    const resetAction = NavigationActions.reset({
-                        index:0,
-                        params:{user:result.name},
-                        actions:[
-                            NavigationActions.navigate({routeName:'Home'})
-                        ]
-                    });
-                    navigation.dispatch(resetAction);
-                }
-            },(error)=>{
-                if(error.message){
-                    console.log('error message',error.message);
-                    // return;
-                }
-                console.log('error',error);
-            });
+        const resetAction = NavigationActions.reset({
+            index:0,
+            params:{user:'aqian'},
+            actions:[
+                NavigationActions.navigate({routeName:'Home'})
+            ]
+        });
+        const {navigation} = this.props;
+        navigation.dispatch(resetAction);
+        // ApiFetch.fetch('/login','POST',{name:this.state.name,password:this.state.password})
+        //     .then((result)=>{
+        //         console.log('result',result);
+        //         const {navigation} = this.props;
+        //         if(result&&result.id){
+        //             const resetAction = NavigationActions.reset({
+        //                 index:0,
+        //                 params:{user:result.name},
+        //                 actions:[
+        //                     NavigationActions.navigate({routeName:'Home'})
+        //                 ]
+        //             });
+        //             navigation.dispatch(resetAction);
+        //         }
+        //     },(error)=>{
+        //         if(error.message){
+        //             console.log('error message',error.message);
+        //             // return;
+        //         }
+        //         console.log('error',error);
+        //     });
     }
 
     checkValidate(){
